@@ -139,10 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="sidewaysRunner.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sidewaysRunner.h" />
+    <ClInclude Include="dependencies.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="obstacle.h" />
+    <ClInclude Include="runner.h" />
+    <ClInclude Include="renderer.h" />
     <ClInclude Include="timercpp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

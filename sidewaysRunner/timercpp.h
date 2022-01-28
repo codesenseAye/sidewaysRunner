@@ -9,16 +9,16 @@ class Timer {
 
 public:
     template<typename Function> // like generic types in lua except its above the whole function / class / struct and local to it?
-    void setTimeout(Function function, int delay);
+    inline void setTimeout(Function function, int delay);
 
     template<typename Function>
-    void setInterval(Function function, int interval);
-    void stop();
+    inline void setInterval(Function function, int interval);
+    inline void stop();
 
 };
 
 template<typename Function>
-void Timer::setTimeout(Function function, int delay) {
+inline void Timer::setTimeout(Function function, int delay) {
     active = true;
     std::thread t([=]() {
         if (!active.load()) return;
@@ -30,7 +30,7 @@ void Timer::setTimeout(Function function, int delay) {
 }
 
 template<typename Function>
-void Timer::setInterval(Function function, int interval) {
+inline void Timer::setInterval(Function function, int interval) {
     active = true;
     std::thread t([=]() {
         while (active.load()) {
@@ -42,6 +42,6 @@ void Timer::setInterval(Function function, int interval) {
     t.detach();
 }
 
-void Timer::stop() {
+inline void Timer::stop() {
     active = false;
 }
